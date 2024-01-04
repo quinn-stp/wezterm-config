@@ -6,15 +6,16 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+config.default_prog = { '/usr/local/bin/fish', '--login' }
+
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 
 config.font = wezterm.font('JetBrainsMono Nerd Font Propo')
+config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 
 config.front_end = "WebGpu"
 config.window_decorations = "TITLE|RESIZE|MACOS_FORCE_DISABLE_SHADOW"
-
-wezterm.log_info(wezterm.get_builtin_color_schemes()['carbonfox'])
 
 local colors = wezterm.get_builtin_color_schemes()['carbonfox']
 
