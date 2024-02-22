@@ -17,21 +17,59 @@ config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 config.front_end = "WebGpu"
 config.window_decorations = "TITLE|RESIZE|MACOS_FORCE_DISABLE_SHADOW"
 
-local colors = wezterm.get_builtin_color_schemes()['carbonfox']
+local colors = wezterm.color.get_builtin_schemes()['EverforestDark (Gogh)']
 
-colors.tab_bar.active_tab.bg_color = colors.background
-colors.tab_bar.active_tab.fg_color = colors.foreground
-colors.tab_bar.active_tab.intensity = 'Bold'
-colors.tab_bar.active_tab.underline = 'Single'
+colors.background = '272e33'
 
-colors.tab_bar.inactive_tab.bg_color = colors.tab_bar.background
-
-colors.tab_bar.inactive_tab_hover.bg_color = colors.tab_bar.background
-
-colors.tab_bar.new_tab.bg_color = colors.tab_bar.background
-
-colors.tab_bar.new_tab_hover.bg_color = colors.tab_bar.background
+colors.tab_bar = {
+    background = colors.background,
+    active_tab = {
+        bg_color = colors.background,
+        fg_color = colors.foreground,
+        intensity = 'Bold',
+        underline = 'Single',
+    },
+    inactive_tab = {
+        fg_color = colors.foreground,
+        bg_color = colors.background,
+    },
+    inactive_tab_hover = {
+        fg_color = colors.foreground,
+        bg_color = colors.background,
+    },
+    new_tab = {
+        fg_color = colors.foreground,
+        bg_color = colors.background,
+    },
+    new_tab_hover = {
+        fg_color = colors.foreground,
+        bg_color = colors.background,
+    }
+}
 
 config.colors = colors
+
+config.keys = {
+    {
+        key = 'h',
+        mods = 'SUPER',
+        action = wezterm.action.ActivatePaneDirection('Left')
+    },
+    {
+        key = 'j',
+        mods = 'SUPER',
+        action = wezterm.action.ActivatePaneDirection('Down')
+    },
+    {
+        key = 'k',
+        mods = 'SUPER',
+        action = wezterm.action.ActivatePaneDirection('Up')
+    },
+    {
+        key = 'l',
+        mods = 'SUPER',
+        action = wezterm.action.ActivatePaneDirection('Right')
+    },
+}
 
 return config
