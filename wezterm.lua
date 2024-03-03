@@ -7,6 +7,7 @@ if wezterm.config_builder then
 end
 
 config.default_prog = { '/usr/local/bin/fish', '--login' }
+config.term = 'wezterm'
 
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
